@@ -98,7 +98,7 @@
             "version": "5.6.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/WordPress/WordPress/archive/5.6.0.zip",
+                "url": "https://github.com/WordPress/WordPress/archive/5.6.zip",
                 "reference": null,
                 "shasum": null
             },
