@@ -1,0 +1,384 @@
+/*
+Theme Name: Olano
+Theme URI: https://www.olano.co.uk/wp-content/themes/olano
+Author: Cameron Drysdale
+Author URI: https://driz.co.uk
+Description: Olano WordPress Theme.
+Template: nacore
+Version: 0.1
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import 'assets/css/fontawesome.css';
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Poppins', sans-serif;
+
+    vertical-align: baseline;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 800;
+    text-transform: lowercase;
+    margin-bottom: 24px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 16px;
+}
+p:last-child {
+    margin-bottom: 0;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1280px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+footer {
+    background-color: var(--background-color);
+    color: var(--color);
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.section.section--full-height {
+    min-height: calc(100vh - 96px);
+}
+
+.admin-bar .section.section--full-height {
+    min-height: calc(100vh - (96px + 32px));
+}
+
+.background-primary {
+    background-color: var(--primary-color);
+}
+
+.background-secondary {
+    background-color: var(--background-color);
+}
+
+.background-green {
+    background-color: green;
+}
+
+.background-orange {
+    background-color: orange;
+}
+
+.background-yellow {
+    background-color: yellow;
+}
+
+.background-blue {
+    background-color: blue;
+}
+
+.custom-logo {
+    max-width: 32px;
+    max-height: 32px;
+    width: auto;
+    height: auto;
+}
+
+:root {
+    --primary-color: #ff0033;
+    --background-color: #FFFFFF;
+    --color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #000000;
+        --color: #FFFFFF;
+    }
+}
+
+.theme-dark:root {
+    --background-color: #000000;
+    --color: #FFFFFF;
+}
+
+.theme-light:root {
+    --background-color: #FFFFFF;
+    --color: #000000;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--color);
+}
+
+#dark-mode-toggler {
+    margin-left: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border: var(--color) 2px solid;
+    border-radius: 50%;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+#dark-mode-toggler:hover {
+    transform: scale(1.2);
+}
+
+#dark-mode-toggler svg path {
+    fill: var(--color);
+    transition: all .2s ease-in-out;
+}
+
+#dark-mode-toggler[aria-pressed="true"] svg path {
+    fill: var(--color);
+}
+
+#masthead {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    height: 96px;
+    background-color: var(--primary-color);
+}
+
+#masthead .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#masthead nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#masthead ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+#masthead ul li {
+    margin-left: 32px;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: lowercase;
+}
+
+#masthead ul li a {
+    text-decoration: none;
+    color: var(--color);
+    font-weight: 600;
+}
+
+/* styling this could be a problem due to the contact link */
+#masthead ul li.current-menu-item a {
+    color: var(--color);
+}
+
+#masthead ul li:first-child {
+    margin-left: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.font-size-14 {
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.font-size-48 {
+    font-size: 48px;
+    line-height: 56px;
+}
+
+.font-size-64 {
+    font-size: 64px;
+    line-height: 72px;
+}
+
+.margin-x-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.margin-b-32 {
+    margin-bottom: 32px;
+}
+.margin-b-48 {
+    margin-bottom: 48px;
+}
+
+
+.form__group {
+    margin-bottom: 16px;
+}
+
+.form__label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: lowercase;
+}
+.form__label i {
+    margin-right: 8px;
+}
+
+input[type='text'],
+input[type='email'],
+textarea {
+    width: 100%;
+    border: var(--color) 2px solid;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1;
+    color: var(--color);
+    border-radius: 8px;
+    padding: 0 16px;
+    height: 48px;
+}
+
+textarea {
+    padding: 16px 16px;
+    min-height: 240px;
+    resize: vertical;
+}
+
+.button {
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 32px;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 32px;
+    height: 48px;
+    background-color: transparent;
+    border: var(--color) 2px solid;
+    color: var(--color);
+    border-radius: 999rem;
+    position: relative;
+}
+/* .button:after {
+    content: '';
+    border-right: #fff 2px solid;
+    border-bottom: #fff 2px solid;
+    border-radius: 999rem;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    bottom: -8px;
+    right: -8px;
+} */
+
+.button:hover {
+
+}
+.button:focus {
+
+}
+.button i {
+    margin-right: 8px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, .25) 0 8px 16px;
+}
+
+.card {
+    padding: 32px;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+}
+
+.social {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.social li {
+    font-size: 24px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+.social li:first-child {
+    margin-left: 0;
+}
+.social li:last-child {
+    margin-right: 0;
+}
+.social li a {
+    width: 48px;
+    height: 48px;
+    border: #fff 2px solid;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+
+.wp-block-columns:last-child {
+    margin-bottom: 0;
+}

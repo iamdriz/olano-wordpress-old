@@ -1,0 +1,18 @@
+{
+    "name": "Olano WordPress",
+    "description": "Template for deploying Olano WordPress to Heroku",
+    "repository": "",
+    "success_url": "/",
+    "env": {
+        "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-php",
+        "DISABLE_WP_CRON": {
+            "description": "Disable WordPress internal cron-job.",
+            "value": "true"
+        }
+    },
+    "addons": [
+        "cleardb",
+        "sendgrid",
+        "papertrail"
+    ]
+}
