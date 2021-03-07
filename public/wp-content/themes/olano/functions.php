@@ -1,5 +1,8 @@
 <?php
 
+require get_stylesheet_directory() . '/blocks/section/index.php';
+require get_stylesheet_directory() . '/blocks/card/index.php';
+
 /**
  * Add Menus
  */
@@ -20,10 +23,11 @@ add_action('init', 'olano_menus');
 function olano_css_js() {
 	// get_stylesheet_directory_uri() => child theme
 	// get_template_directory_uri() => parent theme
+	// remove uri for filemtime as we want server rather than web address
 	wp_enqueue_style('olana', get_stylesheet_directory_uri() . '/style.css', array(),
-	 filemtime(get_stylesheet_directory_uri() . '/style.css'), 'all');
+	 filemtime(get_stylesheet_directory() . '/style.css'), 'all');
 	wp_enqueue_script( 'dark-mode', get_stylesheet_directory_uri() . '/assets/js/dark-mode.js', array(),
-	 filemtime(get_stylesheet_directory_uri() . '/assets/js/dark-mode.js'), true );
+	 filemtime(get_stylesheet_directory() . '/assets/js/dark-mode.js'), true );
 }
 add_action('wp_enqueue_scripts', 'olano_css_js');
 
@@ -76,4 +80,9 @@ add_action('customize_register', 'olano_custom_logo_dark_mode');
 // Load up our theme options page and related code.
 // require get_template_directory() . '/inc/theme-options.php';
 
-?>
+
+add_theme_support( 'editor-styles' );
+add_theme_support( 'dark-editor-style' );
+$editor_stylesheet_path = './assets/css/style-editor.css';
+// Enqueue editor styles.
+add_editor_style( $editor_stylesheet_path );

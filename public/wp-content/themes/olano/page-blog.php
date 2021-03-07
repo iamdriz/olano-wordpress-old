@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-  <meta charset="<?php bloginfo( 'charset' ); ?>">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <?php wp_head(); ?>
-</head>
-
-<body <?php body_class(); ?>>
-
 <?php get_header(); ?>
 
 <main role="main">
@@ -29,14 +18,14 @@
       endif;
       ?>
 
-      
-      <?php $temp = $wp_query; $wp_query= null; ?>		
+      <?php // $temp = $wp_query; $wp_query= null; ?>		
 			
-      <?php $wp_query = new WP_Query(array('posts_per_page' => 99999, 'paged' => $paged)); while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+      <?php $wp_query = new WP_Query(array('posts_per_page' => get_option('posts_per_page'), 'paged' => $paged)); ?>
       
-      <?php //while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
-                    
-        <article class="post clearfix<?php if($count == 1) { echo ' first'; } ?>">
+      <div class="post-list">
+      <?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+      <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">         
+        <article class="post<?php if($count == 1) { echo ' first'; } ?>">
           <figure class="post-thumbnail">
           <?php if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
             echo '<a href="'.get_permalink().'">';
@@ -56,17 +45,35 @@
 
             <?php the_excerpt(); ?>
           
+            <p class="postmetadata"><?php the_tags(__('Tags:', 'kubrick'), ', ', '<br />'); ?> <?php printf(__('Posted in %s', 'kubrick'), get_the_category_list(', ')); ?> | <?php edit_post_link(__('Edit', 'kubrick'), '', ' | '); ?>  <?php comments_popup_link(__('No Comments &#187;', 'kubrick'), __('1 Comment &#187;', 'kubrick'), __('% Comments &#187;', 'kubrick'), '', __('Comments Closed', 'kubrick') ); ?></p>
+
           </section>
         </article>
-            
+        </div>
       <?php endwhile; ?>
-  
-      <?php $wp_query = null; $wp_query = $temp; ?>
+      </div>
+
+      <?php // $wp_query = null; $wp_query = $temp; ?>
+
       </div>
 </section>
-<section>
-<?php get_calendar(); ?>
-			
+
+<section class="section background-blue">
+    <div class="container">
+      <div class="navigation">
+        <div class="alignleft">
+          <?php next_posts_link('<i class="fas fa-chevron-left fa-fw"></i> Older') ?>
+        </div>
+        <div class="alignright">
+          <?php previous_posts_link('Newer <i class="fas fa-chevron-right fa-fw"></i>') ?>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section background-green">
+  <div class="container">
+    <?php get_calendar(); ?>
       <h2 class="border-bottom">Categories</h2>
       <?php wp_list_categories('title_li=0'); ?>
       
@@ -74,7 +81,7 @@
       <?php wp_tag_cloud(); ?>
       
       <h2 class="border-bottom">Archives</h2>
-      <?php wp_get_archives(); ?>
+      <?php wp_get_archives('type=monthly'); ?>
     
       <div class="sub-menu">
         <?php
@@ -87,13 +94,11 @@
           <?php echo $children; ?>
         </ul>
         <?php } ?>
+
       </div>
+  </div>
 </section>
 <?php get_template_part( 'template-parts/contact' ); ?>
 </main><!-- #main -->
 
 <?php get_footer(); ?>
-<?php wp_footer(); ?>
-
-</body>
-</html>

@@ -27,7 +27,6 @@ body {
     font-size: 16px;
     line-height: 24px;
     font-family: 'Poppins', sans-serif;
-
     vertical-align: baseline;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -36,6 +35,7 @@ body {
 }
 
 a {
+    color: black;
     text-decoration: none;
 }
 
@@ -55,6 +55,7 @@ p {
     line-height: 24px;
     margin-bottom: 16px;
 }
+
 p:last-child {
     margin-bottom: 0;
 }
@@ -82,10 +83,6 @@ footer {
 
 .section.section--full-height {
     min-height: calc(100vh - 96px);
-}
-
-.admin-bar .section.section--full-height {
-    min-height: calc(100vh - (96px + 32px));
 }
 
 .background-primary {
@@ -169,7 +166,7 @@ body {
     transition: all .2s ease-in-out;
 }
 
-#dark-mode-toggler[aria-pressed="true"] svg path {
+#dark-mode-toggler[aria-pressed='true'] svg path {
     fill: var(--color);
 }
 
@@ -215,7 +212,7 @@ body {
     font-weight: 600;
 }
 
-/* styling this could be a problem due to the contact link */
+/* styling this could be a problem due to the contact link never being enabled */
 #masthead ul li.current-menu-item a {
     color: var(--color);
 }
@@ -233,6 +230,16 @@ body {
     line-height: 22px;
 }
 
+.font-size-24 {
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.font-size-32 {
+    font-size: 32px;
+    line-height: 40px;
+}
+
 .font-size-48 {
     font-size: 48px;
     line-height: 56px;
@@ -248,9 +255,18 @@ body {
     margin-right: auto;
 }
 
+.margin-b-24 {
+    margin-bottom: 24px;
+}
+
 .margin-b-32 {
     margin-bottom: 32px;
 }
+
+.margin-b-40 {
+    margin-bottom: 40px;
+}
+
 .margin-b-48 {
     margin-bottom: 48px;
 }
@@ -260,6 +276,10 @@ body {
     margin-bottom: 16px;
 }
 
+.form__group:last-child {
+    margin-bottom: 0;
+}
+
 .form__label {
     display: flex;
     align-items: center;
@@ -267,6 +287,7 @@ body {
     font-weight: 600;
     text-transform: lowercase;
 }
+
 .form__label i {
     margin-right: 8px;
 }
@@ -294,22 +315,24 @@ textarea {
 
 .button {
     appearance: none;
-    -webkit-appearance: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 0 32px;
     font-size: 24px;
+    line-height: 32px;
     font-weight: 600;
     font-family: inherit;
-    line-height: 32px;
+    text-transform: lowercase;
     height: 48px;
-    background-color: transparent;
+    background-color: var(--color);
     border: var(--color) 2px solid;
-    color: var(--color);
+    color: var(--background-color);
     border-radius: 999rem;
     position: relative;
+    cursor: pointer;
 }
+
 /* .button:after {
     content: '';
     border-right: #fff 2px solid;
@@ -322,25 +345,22 @@ textarea {
     right: -8px;
 } */
 
-.button:hover {
+.button:hover {}
 
-}
-.button:focus {
+.button:focus {}
 
-}
 .button i {
     margin-right: 8px;
 }
 
-img {
+img,
+video {
     max-width: 100%;
     height: auto;
     vertical-align: middle;
 }
 
 video {
-    max-width: 100%;
-    height: auto;
     box-shadow: rgba(0, 0, 0, .25) 0 8px 16px;
 }
 
@@ -356,17 +376,21 @@ video {
     align-items: center;
     justify-content: center;
 }
+
 .social li {
     font-size: 24px;
     margin-left: 16px;
     margin-right: 16px;
 }
+
 .social li:first-child {
     margin-left: 0;
 }
+
 .social li:last-child {
     margin-right: 0;
 }
+
 .social li a {
     width: 48px;
     height: 48px;
@@ -376,9 +400,48 @@ video {
     justify-content: center;
     align-items: center;
     color: #fff;
+    transition: all .2s ease-in-out;
 }
 
+.social li a:hover {
+    transform: scale(1.2);
+}
 
 .wp-block-columns:last-child {
     margin-bottom: 0;
+}
+
+
+.post-list {
+    margin-top: 64px;
+}
+
+.post-list .post {
+    margin-bottom: 48px;
+}
+
+.post-list .post:last-child {
+    margin-bottom: 0;
+}
+
+
+.full-right img {
+    max-width: 50vw;
+    width: 50vw;
+    margin-left: -16px;
+}
+
+.section.section--full-height {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.section.section--full-height {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section.section--full-height .wp-block-image {
+    margin-bottom: 0 !important;
 }
